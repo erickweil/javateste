@@ -1,0 +1,32 @@
+package br.erickweil.estruturas;
+
+public class FilaArray {
+    int[] arr;
+    int inicio;
+    int fim;
+    int sz;
+    public FilaArray(int tamanho) {
+        arr = new int[tamanho];
+        inicio = 0;
+        fim = 0;
+        sz = 0;
+    }
+
+    public void enqueue(int valor) {
+        arr[inicio] = valor;
+        inicio = (inicio + 1) % arr.length;
+        sz++;
+    }
+
+    public int dequeue() {
+        int retorno = arr[fim];
+        arr[fim] = 0;
+        fim = (fim + 1) % arr.length;
+        sz--;
+        return retorno;
+    }
+
+    public int size() {
+        return sz;
+    }
+}
